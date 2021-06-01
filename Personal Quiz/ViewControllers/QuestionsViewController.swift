@@ -172,5 +172,12 @@ extension QuestionsViewController {
             performSegue(withIdentifier: "resultSegue", sender: nil)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "resultSegue",
+        let vc = segue.destination as? ResultViewController else { return }
+        vc.answers = answersChosen
+        
+    }
 }
 
